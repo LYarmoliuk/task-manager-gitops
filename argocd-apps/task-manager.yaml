@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: task-manager
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/LYarmoliuk/task-manager-gitops.git
+    targetRevision: main
+    path: charts/task-manager
+    helm:
+      valueFiles:
+        - values-minikube.yaml   # шлях відносно каталогу чарту
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: task-manager
+  syncPolicy:
+    automated:
+      prune: true                # selfHeal додамо в п. 6
+    syncOptions:
+      - CreateNamespace=true
