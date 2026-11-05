@@ -1,0 +1,10 @@
+# Псевдонім DNS для backend: nginx у frontend звертається до цього імені.
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    {{- include "task-manager.labels" . | nindent 4 }}
+spec:
+  type: ExternalName
+  externalName: {{ include "task-manager.fullname" . }}-backend.{{ .Release.Namespace }}.svc.cluster.local
