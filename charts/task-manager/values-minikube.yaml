@@ -3,13 +3,13 @@
 existingSecret: task-manager-secret
 
 backend:
-  replicas: 2
+  replicas: 1
   image:
     repository: ghcr.io/lyarmoliuk/devops_task_manager-backend
-    tag: "9.9.9"
+    tag: "1.1.0"
 
 frontend:
-  replicas: 2
+  replicas: 1
   image:
     repository: ghcr.io/lyarmoliuk/devops_task_manager-frontend
     tag: "1.1.0"
