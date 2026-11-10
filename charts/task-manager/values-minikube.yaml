@@ -3,7 +3,7 @@
 existingSecret: task-manager-secret
 
 backend:
-  replicas: 1
+  replicas: 4
   image:
     repository: ghcr.io/lyarmoliuk/devops_task_manager-backend
     tag: "1.1.0"
@@ -24,3 +24,16 @@ persistence:
 
 config:
   appVersion: "1.1.0"
+
+# --- Argo Rollouts (ЛР-6)
+rollout:
+  enabled: true
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: {}               # чекати ручного promote
+        - setWeight: 60
+        - pause: {duration: 30s}
+        - setWeight: 80
+        - pause: {duration: 30s}
