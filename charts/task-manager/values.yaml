@@ -64,3 +64,8 @@ ingress:
 # Якщо задано — шаблон Secret не рендериться, а Deployment
 # посилається на Secret, створений вручну
 existingSecret: ""
+
+# Argo Rollouts: якщо enabled — замість Deployment створюється Rollout
+rollout:
+  enabled: false
+  strategy: {}
