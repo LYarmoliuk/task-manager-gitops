@@ -3,7 +3,7 @@
 existingSecret: task-manager-secret
 
 backend:
-  replicas: 4
+  replicas: 3
   image:
     repository: ghcr.io/lyarmoliuk/devops_task_manager-backend
     tag: "1.2.0"
