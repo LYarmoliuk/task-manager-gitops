@@ -6,7 +6,7 @@ backend:
   replicas: 3
   image:
     repository: ghcr.io/lyarmoliuk/devops_task_manager-backend
-    tag: "1.2.0"
+    tag: "1.1.0"
 
 frontend:
   replicas: 1
@@ -23,17 +23,4 @@ persistence:
   existingClaim: ""
 
 config:
-  appVersion: "1.2.0"
-
-# --- Argo Rollouts (ЛР-6)
-rollout:
-  enabled: true
-  strategy:
-    canary:
-      steps:
-        - setWeight: 20
-        - pause: {}               # чекати ручного promote
-        - setWeight: 60
-        - pause: {duration: 30s}
-        - setWeight: 80
-        - pause: {duration: 30s}
+  appVersion: "1.1.0"

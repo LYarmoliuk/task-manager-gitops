@@ -1,4 +1,4 @@
-﻿1. Task Manager Helm release: {{ .Release.Name }}
+1. Task Manager Helm release: {{ .Release.Name }}
 
 Frontend service: {{ include "task-manager.fullname" . }}-frontend:{{ .Values.frontend.port }}
 Backend service: {{ include "task-manager.fullname" . }}-backend:{{ .Values.backend.port }}
